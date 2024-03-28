@@ -1,0 +1,14 @@
+{% extends "base.html"%}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+    <h1>Welcome!</h1>
+    <p></p>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p>{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <image src="{{ url_for('static', filename='images/image.jpg')}}">
+{% endblock %}

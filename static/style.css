@@ -1,0 +1,130 @@
+
+
+
+body {
+    color:rgba(255, 255, 255, 0.667);
+    background-color:rgb(17, 68, 151);
+}
+
+
+tbody tr:nth-child(odd) {
+    background-color: #ff33cc;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #e495e4;
+  }
+  
+.scoreboard {
+    color:rgba(255, 255, 255, 0.667);
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 340px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: -1; /* Stay on top */
+    top: 50; /* Stay at the top */
+    left: 15;
+
+    tbody tr:nth-child(odd) {
+        background-color:rgb(17, 68, 151);
+      }
+      
+    tbody tr:nth-child(even) {
+        background-color:rgb(50, 91, 157);
+      }
+    padding-top: 20px;
+  }
+
+p {
+    text-indent: 10px;
+}
+
+.leaderboard-title {
+    font:bold;
+    font-size:x-large;
+}
+
+.leaderboard-page-table {
+    table {
+        counter-reset: rowNumber;
+    }
+    
+    thead{
+        font-size: x-large;
+        background-color:rgb(7, 41, 92);
+    }
+    tbody tr {
+        counter-increment: rowNumber;
+    }
+    
+    tbody tr td:first-child::before {
+        content: counter(rowNumber);
+        min-width: 1em;
+        margin-right: 0.5em;
+    }
+
+    font-size: large;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    word-wrap: break-word;
+    tbody tr:nth-child(odd) {
+        background-color:rgb(17, 68, 151);
+      }
+      
+    tbody tr:nth-child(even) {
+        background-color:rgb(50, 91, 157);
+      }
+  }
+
+.leaderboard-table {
+    width: 200px;
+    border: 1px solid;
+    overflow: hidden;
+  }
+
+.scoreplace{
+    width: 50px;
+    overflow: hidden;
+  }
+
+@media screen and (max-width: 1024px) {
+    .scoreboard {width: 0px;}
+    .leaderboard-table {width: 0px}
+    .leaderboard-title {width: 0px}
+}
+
+
+
+.centerdiv {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    
+}
+
+
+/* button stuff */
+
+  
+.theclicker {
+    align-items: center;
+    justify-content: center;
+    border-radius: 80%;
+    width: 200px;
+    height: 200px;
+    background-color: rgb(255, 0, 0);
+    background-attachment : fixed;
+    outline: none;
+    box-shadow: none;
+    padding: 10px;
+    
+    background-size:cover;
+
+}
+
+.theclicker img {
+    position: absolute;
+
+    width: 2.4in;
+    transform: translate(-50%, -50%);
+  }

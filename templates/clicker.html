@@ -1,0 +1,57 @@
+{% extends "base.html"%}
+
+{% block title %}Clicker{% endblock %}
+{% block content %}
+
+<div class="centerdiv">
+            <h1>Clicker</h1>
+            <p></p>
+
+            <button class="theclicker" id="imgbutton" onclick="myFunction()">
+                <img src="{{ url_for('static', filename='images/button.png')}}">
+            </button>
+
+            <p></p>
+
+            <p> 
+                Username: {{name}}
+            </p>
+
+            <p id="score"></p>
+
+
+
+            <script type="text/javascript" src="app.js"></script>
+            <script type="text/javascript">
+                var currentscore = ('{{ score }}')
+                document.getElementById('score').innerHTML = 'Score: ' + currentscore;
+
+
+                document.getElementById("imgbutton").onclick = function () {
+                    var randColor = Math.floor(Math.random()*16777215).toString(16);
+                    document.body.style.backgroundColor = randColor;
+
+
+                    fetch('/buttonclick', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/www-myrepltproject',
+                        },
+                        body: 'value=' + Math.random(),  // update the variable to a random value, just change it later.
+
+                    })
+                    //why doesn't this part workkkkkk
+                    currentscore++;
+                    document.getElementById('score').innerHTML = 'Score: ' + currentscore;
+                };
+            </script>
+            <p id='comboer'>
+                Note: Score tracks times clicked multiplied when you click more quickly over time, the above number tracks score when you entered and adds one for each click, which is going to be a little less than your real score.
+                {{combomultiplier}}
+            </p>
+</div>
+
+{% with data=data %}
+{% include "minileaderboard.html"%}
+{% endwith %}
+{% endblock %}

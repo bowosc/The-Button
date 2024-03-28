@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Leaderboard{% endblock %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    {% for msg in messages %}
+        <p>{{msg}}</p>
+    {% endfor %}
+{% endif %}
+{% endwith %}
+
+<table width="100%" class="leaderboard-page-table">
+    <thead>
+        <td>
+            Username
+        </td>
+        <td>
+            Score
+        </td>
+    </thead>
+    <tbody>
+    {% for user in listedusers %}
+        <tr>
+            <td>{{ user.name }}</td>
+            <td>{{ user.score }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

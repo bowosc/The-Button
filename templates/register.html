@@ -1,0 +1,26 @@
+{% extends "base.html"%}
+{% block title %}Register{% endblock %}
+
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p>{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+<p style="font-size:140%;">
+    Create an account!
+</p>
+<form action="#" method="post">
+    <p> Desired Username: </p>
+    <p><input autocomplete="off" type="Text" name="nm" /></p>
+    <p> Password: </p>
+    <i> Bowie's note: make sure you type it right, I didn't feel like adding a double-verification line in here. </i>
+    <p><input autocomplete="off" type="password" name="password" /></p>
+    <p> Email address: </p>
+    <p><input autocomplete="off" type="Text" name="email" /></p>
+    <p><input type="submit" name="submit" /></p>
+</form>
+
+{% endblock %}
